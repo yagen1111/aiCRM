@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="retro-grid.css">
+    <link rel="stylesheet" href="animated-shiny-text.css">
+    <link rel="stylesheet" href="shimmer-button.css">
+</head>
+<body>
+    <header class="header">
+        <img src="logo.png" alt="logo" class="logo" width="150" height="100">
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="features.html">Features</a>
+            <a href="#">Program</a>
+            <a href="#">How it works</a>
+            <a href="#">Pricing</a>
+        </nav>
+        <button class="shimmer-button">
+            <span class="spark-container">
+                <span class="spark">
+                    <span class="spark-before"></span>
+                </span>
+            </span>
+            <span class="highlight"></span>
+            <span class="backdrop"></span>
+            <span class="text-container">Try for free</span>
+        </button>
+    </header>
+
+    <section class="home">
+        <div class="retro-grid">
+            <div class="grid-container">
+                <div class="grid-lines"></div>
+            </div>
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="home-content">
+            <h1 class="animated-shiny-text">Feels human. Works like AI.</h1>
+            <h2>Cut costs, boost efficiency, and scale your service business — instantly.
+                With Dispatchio AI, you get a 24/7 no-code virtual agent that answers calls, captures leads, and books appointments — so you never miss a job again.</h2>
+        </div>
+        <div class="home-video">
+            <video autoplay muted loop id="myVideo">
+                <source src="Customer Onboarding Video (1).mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+        </div>
+    </section>
+
+    <section class="sound-board">
+        <h2 class="animated-shiny-text">Click an Image to Play a Sound</h2>
+        <div class="image-grid">
+            <div class="image-row">
+                <div class="image-container">
+                    <img src="Untitled design.png" alt="Sound 1" class="circular-image" data-audio-src="path/to/your/audio1.mp3" >
+                </div>
+                <div class="image-container">
+                    <img src="Untitled design (1).png" alt="Sound 2" class="circular-image" data-audio-src="path/to/your/audio2.mp3">
+                </div>
+                <div class="image-container">
+                    <img src="Untitled design (2).png" alt="Sound 3" class="circular-image" data-audio-src="path/to/your/audio3.mp3">
+                </div>
+                <div class="image-container">
+                    <img src="Untitled design (3).png" alt="Sound 4" class="circular-image" data-audio-src="path/to/your/audio4.mp3">
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- START FEATURES SECTION -->
+    <section class="features-section">
+        <h2 class="animated-shiny-text">Simpletalk Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-image-container"><img src="https://i.imgur.com/gO0e0m9.png" alt="Calendar Sync"></div>
+                <h3>Universal Calendar Syncing</h3>
+                <p>Our AI directly books and syncs appointments across all major calendar platforms for a unified scheduling experience.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image-container"><img src="https://i.imgur.com/uR3e2uI.png" alt="AI Receptionist"></div>
+                <h3>AI Receptionist</h3>
+                <p>Automatically routes unanswered calls to AI, books appointments, answers questions, and sends transcripts to your phone.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image-container"><img src="https://i.imgur.com/nJtB3bq.png" alt="Handoff Capability"></div>
+                <h3>Seamless Handoff Capability</h3>
+                <p>Effortless transition from AI to human touch with live call transfer, ensuring no conversation loses its flow.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image-container"><img src="https://i.imgur.com/tX6iWfM.png" alt="CRM Integration"></div>
+                <h3>CRM Integration</h3>
+                <p>Connects with your existing CRM to log calls, update customer records, and provide your team with context.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image-container"><img src="https://i.imgur.com/g8eYqZ3.png" alt="Multilingual Support"></div>
+                <h3>Multilingual Support</h3>
+                <p>Communicate with customers in their native language. Our AI supports over 50 languages to expand your reach.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image-container"><img src="https://i.imgur.com/1vYfJmX.png" alt="Custom AI Voice"></div>
+                <h3>Customizable AI Voice</h3>
+                <p>Choose from a variety of AI voices or clone your own to create a consistent and familiar brand experience.</p>
+            </div>
+        </div>
+    </section>
+    <!-- END FEATURES SECTION -->
+
+    <!-- START USE CASES SECTION -->
+    <section class="use-cases-section">
+        <h2 class="animated-shiny-text">Explore Assistants For Different Use Cases</h2>
+        <div class="use-cases-container">
+            <div class="accordion-container">
+                <!-- Accordion Item 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><i class="fas fa-home"></i> Real Estate</span>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Streamlines property-related dialogues, from lead capture to scheduling property tours, enhancing customer service with AI that speaks the language of real estate.</p>
+                        <div class="accordion-buttons">
+                            <button class="btn btn-primary">Call Me Now</button>
+                            <button class="btn btn-secondary">Play Audio Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more accordion items here -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><i class="fas fa-sun"></i> Solar</span>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Description for Solar.</p>
+                        <div class="accordion-buttons">
+                            <button class="btn btn-primary">Call Me Now</button>
+                            <button class="btn btn-secondary">Play Audio Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="animation-container">
+                <div class="orbit-center">
+                    <!-- Center Icon -->
+                    <div style="width: 80px; height: 80px; background-color: #4A90E2; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                        <i class="fas fa-wave-square" style="color: white; font-size: 40px;"></i>
+                    </div>
+                    
+                    <!-- Orbiting Icons -->
+                    <div class="orbiting-circle" style="--radius: 120px; --duration: 30s; --icon-size: 50px;">
+                         <img src="male.png" alt="Orbiting 1" style="width:100%; height:100%; border-radius:50%; object-fit: cover;">
+                    </div>
+                     <div class="orbiting-circle" style="--radius: 120px; --duration: 30s; --icon-size: 50px;">
+                         <img src="logo.png" alt="Orbiting 2" style="width:100%; height:100%; border-radius:50%; object-fit: cover;">
+                    </div>
+                    <div class="orbiting-circle" style="--radius: 120px; --duration: 30s; --icon-size: 30px;">
+                        <i class="fas fa-microphone" style="color: white; font-size: 15px;"></i>
+                    </div>
+                     <div class="orbiting-circle" style="--radius: 120px; --duration: 30s; --icon-size: 30px;">
+                        <i class="fas fa-headphones" style="color: white; font-size: 15px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END USE CASES SECTION -->
+
+    <!-- START CALCULATOR SECTION -->
+    <section class="calculator-section">
+        <div class="calculator-container">
+            <!-- Header -->
+            <div class="calculator-header">
+                <div class="logo-container">
+                    <div class="logo-bg">
+                        <div class="logo-icon">ai</div>
+                    </div>
+                    <h1>Dispatchio</h1>
+                </div>
+            </div>
+
+            <!-- Calculator Form -->
+            <div class="calculator-form">
+                <!-- Duration Slider -->
+                <div class="slider-component">
+                    <label for="avgDuration">Average Duration of Calls (minutes)?</label>
+                    <div class="slider-container">
+                        <input type="range" id="avgDuration" min="1" max="30" value="5" class="slider">
+                        <div class="slider-labels">
+                            <span class="unit">5min</span>
+                            <div class="value-display"><span id="avgDurationValue">5</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agents Slider -->
+                <div class="slider-component">
+                    <label for="numAgents">How Many Closers/Agents?</label>
+                    <div class="slider-container">
+                        <input type="range" id="numAgents" min="1" max="50" value="5" class="slider">
+                        <div class="slider-labels">
+                            <span class="unit">5 agents</span>
+                            <div class="value-display"><span id="numAgentsValue">5</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hours Slider -->
+                <div class="slider-component">
+                    <label for="hoursPerDay">How many hours per day?</label>
+                    <div class="slider-container">
+                        <input type="range" id="hoursPerDay" min="1" max="24" value="8" class="slider">
+                        <div class="slider-labels">
+                            <span class="unit">8hr(s)</span>
+                            <div class="value-display"><span id="hoursPerDayValue">8</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wage Slider -->
+                <div class="slider-component">
+                    <label for="hourlyWage">Average Hourly Salary per Worker?</label>
+                    <div class="slider-container">
+                        <input type="range" id="hourlyWage" min="10" max="100" value="15" class="slider">
+                        <div class="slider-labels">
+                            <span class="unit">$15</span>
+                            <div class="value-display">$<span id="hourlyWageValue">15</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="results-box">
+                    <h2>Estimated Monthly Savings with DispatchioAI:</h2>
+                    <p class="amount-label">Amount:</p>
+                    <p class="amount-value" id="monthlySavings">$1,584</p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="calculator-footer">
+                <p>Calculations based on AI efficiency improvements and automation benefits</p>
+            </div>
+        </div>
+    </section>
+    <!-- END CALCULATOR SECTION -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageContainers = document.querySelectorAll('.image-container');
+            let currentlyPlaying = null;
+
+            imageContainers.forEach(container => {
+                const image = container.querySelector('.circular-image');
+                const audioSrc = image.getAttribute('data-audio-src');
+
+                if (audioSrc) {
+                    const audio = new Audio(audioSrc);
+                    audio.preload = 'auto';
+
+                    container.addEventListener('click', () => {
+                        if (currentlyPlaying && currentlyPlaying !== audio) {
+                            currentlyPlaying.pause();
+                            currentlyPlaying.currentTime = 0;
+                        }
+                        if (audio.paused) {
+                            audio.play();
+                            currentlyPlaying = audio;
+                        } else {
+                            audio.pause();
+                            audio.currentTime = 0;
+                            currentlyPlaying = null;
+                        }
+                    });
+                }
+            });
+
+            const accordionItems = document.querySelectorAll('.accordion-item');
+
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                header.addEventListener('click', () => {
+                    const content = item.querySelector('.accordion-content');
+                    
+                    // Close other open items
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.accordion-content').style.maxHeight = '0';
+                            otherItem.querySelector('.accordion-content').style.padding = '0 20px';
+                            otherItem.querySelector('.toggle-icon').textContent = '+';
+                        }
+                    });
+
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    if (item.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.padding = '10px 20px 0px';
+                        header.querySelector('.toggle-icon').textContent = '−';
+                    } else {
+                        content.style.maxHeight = '0';
+                        content.style.padding = '0 20px';
+                        header.querySelector('.toggle-icon').textContent = '+';
+                    }
+                });
+            });
+
+            // Calculator Logic
+            const sliders = {
+                avgDuration: {
+                    input: document.getElementById('avgDuration'),
+                    valueDisplay: document.getElementById('avgDurationValue'),
+                },
+                numAgents: {
+                    input: document.getElementById('numAgents'),
+                    valueDisplay: document.getElementById('numAgentsValue'),
+                },
+                hoursPerDay: {
+                    input: document.getElementById('hoursPerDay'),
+                    valueDisplay: document.getElementById('hoursPerDayValue'),
+                },
+                hourlyWage: {
+                    input: document.getElementById('hourlyWage'),
+                    valueDisplay: document.getElementById('hourlyWageValue'),
+                }
+            };
+
+            const monthlySavingsDisplay = document.getElementById('monthlySavings');
+
+            function calculateSavings() {
+                const numAgents = Number(sliders.numAgents.input.value);
+                const hoursPerDay = Number(sliders.hoursPerDay.input.value);
+                const hourlyWage = Number(sliders.hourlyWage.input.value);
+
+                // Calculation from the original component
+                const currentMonthlyCost = numAgents * hoursPerDay * hourlyWage * 22;
+                const aiReduction = currentMonthlyCost * 0.4;
+                const savings = Math.round(aiReduction);
+
+                monthlySavingsDisplay.textContent = '$' + savings.toLocaleString();
+            }
+
+            function updateSlider(slider) {
+                const min = Number(slider.input.min);
+                const max = Number(slider.input.max);
+                const value = Number(slider.input.value);
+                
+                // Update the value display
+                slider.valueDisplay.textContent = value;
+                
+                // Update the slider track gradient
+                const percentage = ((value - min) / (max - min)) * 100;
+                slider.input.style.background = `linear-gradient(to right, #00bcd4 0%, #00bcd4 ${percentage}%, #374151 ${percentage}%, #374151 100%)`;
+            }
+
+            // Add event listeners to all sliders
+            Object.values(sliders).forEach(slider => {
+                if (slider.input) {
+                    slider.input.addEventListener('input', () => {
+                        updateSlider(slider);
+                        calculateSavings();
+                    });
+                    // Initial update
+                    updateSlider(slider);
+                }
+            });
+
+            // Initial calculation
+            calculateSavings();
+        });
+    </script>
+</body>
+</html>

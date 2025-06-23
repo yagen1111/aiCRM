@@ -1,0 +1,20 @@
+.animated-shiny-text {
+    --shiny-width: 90%;
+    background-image: linear-gradient(to right, transparent, rgba(255, 165, 0, 0.8) 50%, transparent);
+    background-size: var(--shiny-width) 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shiny-text 5s cubic-bezier(0.6, 0.6, 0, 1) infinite;
+}
+
+@keyframes shiny-text {
+    0% {
+        background-position: calc(0% - var(--shiny-width));
+    }
+    100% {
+        background-position: calc(100% + var(--shiny-width));
+    }
+} 

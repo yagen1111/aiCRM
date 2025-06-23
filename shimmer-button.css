@@ -1,0 +1,94 @@
+.shimmer-button {
+    --spread: 90deg;
+    --shimmer-color: #FFA500;
+    --radius: 30px;
+    --speed: 3s;
+    --cut: 0.05em;
+    --bg: #FFA500;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 24px;
+    color: white;
+    background: var(--bg);
+    border-radius: var(--radius);
+    transition: transform 0.3s ease-in-out;
+}
+
+.shimmer-button:active {
+    transform: translateY(1px);
+}
+
+.shimmer-button .spark-container {
+    position: absolute;
+    inset: 0;
+    overflow: visible;
+    container-type: size;
+    z-index: -2;
+    filter: blur(2px);
+}
+
+.shimmer-button .spark {
+    position: absolute;
+    inset: 0;
+    height: 100cqh;
+    aspect-ratio: 1;
+    border-radius: 0;
+    mask: none;
+    animation: shimmer-slide 3s infinite;
+}
+
+.shimmer-button .spark-before {
+    position: absolute;
+    inset: -100%;
+    width: auto;
+    transform: rotate(0);
+    animation: spin-around 3s infinite linear;
+    background: conic-gradient(from calc(270deg - (var(--spread) * 0.5)), transparent 0, var(--shimmer-color) var(--spread), transparent var(--spread));
+    translate: 0 0;
+}
+
+.shimmer-button .highlight {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2xl;
+    padding: 4px 1.5px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: inset 0 -8px 10px #ffffff1f;
+    transition: all 0.3s ease-in-out;
+}
+
+.shimmer-button:hover .highlight {
+    box-shadow: inset 0 -6px 10px #ffffff3f;
+}
+
+.shimmer-button:active .highlight {
+    box-shadow: inset 0 -10px 10px #ffffff3f;
+}
+
+.shimmer-button .backdrop {
+    position: absolute;
+    z-index: -1;
+    background: var(--bg);
+    border-radius: var(--radius);
+    inset: var(--cut);
+}
+
+@keyframes shimmer-slide {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes spin-around {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+} 

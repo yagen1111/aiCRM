@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Simpletalk</title>
+    <!-- Linking all the same stylesheets from the homepage -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animated-shiny-text.css">
+    <link rel="stylesheet" href="shimmer-button.css">
+    <style>
+        /* This ensures the content starts below the fixed header */
+        body {
+            padding-top: 100px; 
+        }
+
+        /* Features Section Styles (Included directly for simplicity) */
+        .features-section {
+            padding: 60px 10%;
+            background: #f7f9fc;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: left;
+        }
+
+        .feature-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-image-container {
+            background-color: #e1f3ff;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .feature-card img {
+            max-width: 90%;
+            height: auto;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333333;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #666666;
+            flex-grow: 1;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .features-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <!-- Copied Header -->
+    <header class="header">
+        <img src="logo.png" alt="logo" class="logo" width="150" height="100">
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="#">Program</a>
+            <a href="#">How it works</a>
+            <a href="#">Pricing</a>
+        </nav>
+        <button class="shimmer-button">
+            <span class="text-container">Try for free</span>
+        </button>
+    </header>
+
+    <!-- Main Content of the Features Page -->
+    <main>
+        <section class="features-section">
+            <h2 class="animated-shiny-text">Simpletalk Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-image-container"><img src="https://i.imgur.com/gO0e0m9.png" alt="Calendar Sync"></div>
+                    <h3>Universal Calendar Syncing</h3>
+                    <p>Our AI directly books and syncs appointments across all major calendar platforms for a unified scheduling experience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-image-container"><img src="https://i.imgur.com/uR3e2uI.png" alt="AI Receptionist"></div>
+                    <h3>AI Receptionist</h3>
+                    <p>Automatically routes unanswered calls to AI, books appointments, answers questions, and sends transcripts to your phone.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-image-container"><img src="https://i.imgur.com/nJtB3bq.png" alt="Handoff Capability"></div>
+                    <h3>Seamless Handoff Capability</h3>
+                    <p>Effortless transition from AI to human touch with live call transfer, ensuring no conversation loses its flow.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-image-container"><img src="https://i.imgur.com/tX6iWfM.png" alt="CRM Integration"></div>
+                    <h3>CRM Integration</h3>
+                    <p>Connects with your existing CRM to log calls, update customer records, and provide your team with context.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-image-container"><img src="https://i.imgur.com/g8eYqZ3.png" alt="Multilingual Support"></div>
+                    <h3>Multilingual Support</h3>
+                    <p>Communicate with customers in their native language. Our AI supports over 50 languages to expand your reach.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-image-container"><img src="https://i.imgur.com/1vYfJmX.png" alt="Custom AI Voice"></div>
+                    <h3>Customizable AI Voice</h3>
+                    <p>Choose from a variety of AI voices or clone your own to create a consistent and familiar brand experience.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

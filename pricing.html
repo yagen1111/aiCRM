@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shimmer-button.css">
+    <style>
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-color), var(--main-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .pricing-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-color), var(--main-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .pricing-card {
+            background: #63a9f0;
+            color: #222;
+            border: 1px solid #e0e4ea;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .pricing-card.featured {
+            background: #adbff3;
+            border: 2px solid var(--accent-color);
+            color: #222;
+        }
+        .pricing-card.featured::before {
+            content: "BEST SELLER";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 40px;
+            font-size: 12px;
+            font-weight: bold;
+            transform: rotate(45deg);
+        }
+        .plan-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--sub-color);
+        }
+        .plan-subtitle {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .price-period {
+            font-size: 1rem;
+            opacity: 0.7;
+            margin-bottom: 30px;
+        }
+        .features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .features li:last-child {
+            border-bottom: none;
+        }
+        .feature-value {
+            font-weight: bold;
+            color: var(--sub-color);
+        }
+        .unlock-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--accent-color), var(--main-color));
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            outline: none;
+        }
+        .pricing-card:not(.featured) .unlock-btn {
+            background: linear-gradient(45deg, var(--main-color), var(--sub-color));
+            color: #fff;
+            border: none;
+        }
+        .unlock-btn:hover {
+            filter: brightness(1.08);
+            transform: scale(1.04);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.13);
+        }
+        .capabilities {
+            text-align: left;
+        }
+        .capabilities h3 {
+            margin-bottom: 20px;
+            color: var(--sub-color);
+            font-size: 1.2rem;
+        }
+        .capability-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        .capability-item::before {
+            content: "✓";
+            color: var(--sub-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .minutes-section {
+            background: #adbff39e;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        .minutes-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: var(--sub-color);
+        }
+        .minutes-pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .minutes-item {
+            background: #adbff3;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .minutes-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        .minutes-amount {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .minutes-features {
+            font-size: 0.9rem;
+            color: var(--sub-color);
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body style="background: var(--background-gradient, linear-gradient(135deg, var(--main-color) 0%, var(--sub-color) 50%, var(--background-color) 100%)); color: var(--text-color, #fff);">
+    <header class="header">
+        <img src="logo.png" alt="logo" class="logo" width="150" height="100">
+        <button class="hamburger" aria-label="Open navigation" onclick="document.querySelector('.navbar').classList.toggle('active')">
+            &#9776;
+        </button>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="program.html">Program</a>
+            <a href="#">How it works</a>
+            <a href="pricing.html">Pricing</a>
+        </nav>
+        <button class="shimmer-button">
+            <span class="text-container">Try for FREE</span>
+        </button>
+    </header>
+    <div style="height: 150px;"></div>
+    <main>
+        <div class="pricing-container">
+            <div class="pricing-header">
+                <h1 class="pricing-title">Choose Your Perfect Plan</h1>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-name">Cadet</div>
+                    <div class="plan-subtitle">Your Perfect Start</div>
+                    <div class="plan-subtitle" style="color: var(--sub-color); font-style: italic;">Built Custom For Your Business.</div>
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; margin: 20px 0;">
+                        <h4 style="margin-bottom: 15px; color: var(--sub-color);">Special Plan</h4>
+                        <ul class="features">
+                            <li>Facilitators <span class="feature-value">1</span></li>
+                            <li>Extra Tools <span class="feature-value">1</span></li>
+                            <li>Customers Handled <span class="feature-value">500/Month</span></li>
+                            <li>Extra Minutes <span class="feature-value">$0.9/Minute</span></li>
+                        </ul>
+                    </div>
+                    <button class="unlock-btn">Unlock</button>
+                    <div class="capabilities">
+                        <h3>Capabilities</h3>
+                        <div class="capability-item">Full Portal Access</div>
+                        <div class="capability-item">All Integrations Compatible</div>
+                        <div class="capability-item">Model: Horizon V3.2</div>
+                        <div class="capability-item">42 Languages/Accents</div>
+                    </div>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="plan-name">Hero</div>
+                    <div class="plan-subtitle">Your Way To Scale</div>
+                    <div class="plan-subtitle" style="color: var(--sub-color); font-style: italic;">Built Custom For Your Business.</div>
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; margin: 20px 0;">
+                        <h4 style="margin-bottom: 15px; color: var(--sub-color);">Special Plan</h4>
+                        <ul class="features">
+                            <li>Facilitators <span class="feature-value">2</span></li>
+                            <li>Extra Tools <span class="feature-value">2+</span></li>
+                            <li>Customers Handled <span class="feature-value">1500/Month</span></li>
+                            <li>Extra Minutes <span class="feature-value">$0.5/Minute</span></li>
+                        </ul>
+                    </div>
+                    <button class="unlock-btn">Unlock</button>
+                    <div class="capabilities">
+                        <h3>Capabilities</h3>
+                        <div class="capability-item">Full Portal Access</div>
+                        <div class="capability-item">All Integrations Compatible</div>
+                        <div class="capability-item">Model: Horizon A1</div>
+                        <div class="capability-item">42 Languages/Accents</div>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="plan-name">Enterprise</div>
+                    <div class="plan-subtitle">Your Way To Surpass</div>
+                    <div class="plan-subtitle" style="color: var(--sub-color); font-style: italic;">Built Custom For Your Business.</div>
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; margin: 20px 0;">
+                        <h4 style="margin-bottom: 15px; color: var(--sub-color);">Special Plan</h4>
+                        <ul class="features">
+                            <li>Facilitators <span class="feature-value">2+</span></li>
+                            <li>Extra Tools <span class="feature-value">2+</span></li>
+                            <li>Customers Handled <span class="feature-value">25,000/Month</span></li>
+                            <li>Extra Minutes <span class="feature-value">$0.3/Minute</span></li>
+                        </ul>
+                    </div>
+                    <button class="unlock-btn">Unlock</button>
+                    <div class="capabilities">
+                        <h3>Capabilities</h3>
+                        <div class="capability-item">Special Portal Access</div>
+                        <div class="capability-item">All Integrations Compatible</div>
+                        <div class="capability-item">Model: Horizon A2</div>
+                        <div class="capability-item">All Languages/Accents + Voice Cloning</div>
+                    </div>
+                </div>
+            </div>
+            <div class="minutes-section">
+                <h2>Minute Packages</h2>
+                <div class="minutes-pricing">
+                    <div class="minutes-item">
+                        <div class="minutes-price">$600</div>
+                        <div class="minutes-amount">1000 Minutes</div>
+                        <div class="minutes-features">
+                            • Up to 5 concurrent calls<br>
+                            • Incoming calls<br>
+                            • Outgoing calls for meetings<br>
+                            • Basic dashboard
+                        </div>
+                    </div>
+                    <div class="minutes-item">
+                        <div class="minutes-price">$1100</div>
+                        <div class="minutes-amount">2000 Minutes</div>
+                        <div class="minutes-features">
+                            • Up to 10 concurrent calls<br>
+                            • Call recording option<br>
+                            • Advanced client presentations<br>
+                            • 72-hour security improvements
+                        </div>
+                    </div>
+                    <div class="minutes-item">
+                        <div class="minutes-price">$2000</div>
+                        <div class="minutes-amount">4000 Minutes</div>
+                        <div class="minutes-features">
+                            • Full integrations<br>
+                            • Advanced dashboard<br>
+                            • Premium service<br>
+                            • Mentor and model access<br>
+                            • Priority support
+                        </div>
+                    </div>
+                    <div class="minutes-item">
+                        <div class="minutes-price">$4000</div>
+                        <div class="minutes-amount">10,000 Minutes</div>
+                        <div class="minutes-features">
+                            • VIP membership<br>
+                            • Dedicated support
+                        </div>
+                    </div>
+                    <div class="minutes-item">
+                        <div class="minutes-price" style="font-size: 1.5rem;">10,000+ Minutes</div>
+                        <div class="minutes-features">
+                            • VIP membership<br>
+                            • Dedicated support
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-logo-contact">
+                <img src="logo.png" alt="logo" class="footer-logo">
+                <div class="footer-contact">
+                    <span class="footer-icon">✉️</span>
+                    <a href="mailto:helpdesk@simpletalk.ai">helpdesk@simpletalk.ai</a>
+                </div>
+                <div class="footer-contact">
+                    <span class="footer-icon">📍</span>
+                    <span>California, USA</span>
+                </div>
+            </div>
+            <div class="footer-resources">
+                <span class="footer-title">RESOURCES</span>
+                <div class="footer-links">
+                    <a href="#">Company</a>
+                    <a href="features.html">Features</a>
+                    <a href="#">Docs</a>
+                    <a href="#">Book Demo</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms Of Service</a>
+                    <a href="pricing.html">Pricing</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook" class="footer-social-icon"> <span></span> </a>
+                <a href="#" aria-label="Instagram" class="footer-social-icon"> <span></span> </a>
+                <a href="#" aria-label="LinkedIn" class="footer-social-icon"> <span></span> </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 — COPYRIGHT</span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -4,82 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features - Simpletalk</title>
-    <!-- Linking all the same stylesheets from the homepage -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animated-shiny-text.css">
     <link rel="stylesheet" href="shimmer-button.css">
     <style>
-        /* This ensures the content starts below the fixed header */
-        body {
-            padding-top: 100px; 
+        body { padding-top: 100px; }
+        .features-hero {
+            background: linear-gradient(90deg, var(--main-color) 0%, var(--sub-color) 100%);
+            color: #fff;
+            padding: 64px 0 48px 0;
+            text-align: center;
+            position: relative;
         }
-
-        /* Features Section Styles (Included directly for simplicity) */
+        .features-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            z-index: 2;
+            position: relative;
+        }
+        .features-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 18px;
+            letter-spacing: -1px;
+        }
+        .features-hero p {
+            font-size: 1.3rem;
+            opacity: 0.92;
+            margin-bottom: 0;
+        }
         .features-section {
-            padding: 60px 10%;
-            background: #f7f9fc;
+            padding: 60px 5vw 40px 5vw;
+            background: var(--background-color);
             text-align: center;
         }
-
         .features-section h2 {
-            font-size: 42px;
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 60px;
+            margin-bottom: 48px;
+            color: var(--main-color);
         }
-
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 36px;
             text-align: left;
         }
-
         .feature-card {
-            background-color: #ffffff;
+            background: #fff;
             border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 32px 28px 28px 28px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
+            transition: box-shadow 0.2s, transform 0.2s;
+            border: 2px solid transparent;
         }
-
+        .feature-card:hover {
+            box-shadow: 0 12px 36px rgba(0,0,0,0.13);
+            border-color: var(--accent-color);
+            transform: translateY(-4px) scale(1.02);
+        }
         .feature-image-container {
-            background-color: #e1f3ff;
+            background: linear-gradient(135deg, var(--sub-color) 0%, var(--main-color) 100%);
             border-radius: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 220px;
+            height: 180px;
+            width: 100%;
             overflow: hidden;
         }
-
         .feature-card img {
-            max-width: 90%;
+            max-width: 80%;
             height: auto;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.07));
         }
-
         .feature-card h3 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #333333;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--main-color);
         }
-
         .feature-card p {
-            font-size: 16px;
+            font-size: 1.08rem;
             line-height: 1.7;
-            color: #666666;
+            color: #444;
             flex-grow: 1;
         }
-
-        /* Responsive styles */
-        @media (max-width: 1024px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) { .features-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) {
+            .features-hero h1 { font-size: 2.2rem; }
+            .features-section h2 { font-size: 2rem; }
+        }
+        @media (max-width: 600px) {
+            .features-hero { padding: 36px 0 24px 0; }
+            .features-section { padding: 32px 2vw 24px 2vw; }
+            .features-grid { gap: 18px; }
+            .feature-card { padding: 18px 10px; }
+        }
     </style>
 </head>
 <body>
-
     <!-- Copied Header -->
     <header class="header">
         <img src="logo.png" alt="logo" class="logo" width="150" height="100">
@@ -89,15 +116,21 @@
         <nav class="navbar">
             <a href="index.html">Home</a>
             <a href="features.html">Features</a>
-            <a href="#">Program</a>
+            <a href="program.html">Program</a>
             <a href="#">How it works</a>
-            <a href="#">Pricing</a>
+            <a href="pricing.html">Pricing</a>
         </nav>
         <button class="shimmer-button">
             <span class="text-container">Try for free</span>
         </button>
     </header>
-
+    <!-- Features Hero Section -->
+    <section class="features-hero">
+        <div class="features-hero-content">
+            <h1>Discover What Makes Simpletalk Powerful</h1>
+            <p>Explore our suite of features designed to automate, connect, and elevate your business communications. Simple, seamless, and smart—just the way it should be.</p>
+        </div>
+    </section>
     <!-- Main Content of the Features Page -->
     <main>
         <section class="features-section">
@@ -136,6 +169,41 @@
             </div>
         </section>
     </main>
-
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-logo-contact">
+                <img src="logo.png" alt="logo" class="footer-logo">
+                <div class="footer-contact">
+                    <span class="footer-icon">✉️</span>
+                    <a href="mailto:helpdesk@simpletalk.ai">helpdesk@simpletalk.ai</a>
+                </div>
+                <div class="footer-contact">
+                    <span class="footer-icon">📍</span>
+                    <span>California, USA</span>
+                </div>
+            </div>
+            <div class="footer-resources">
+                <span class="footer-title">RESOURCES</span>
+                <div class="footer-links">
+                    <a href="#">Company</a>
+                    <a href="features.html">Features</a>
+                    <a href="#">Docs</a>
+                    <a href="#">Book Demo</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms Of Service</a>
+                    <a href="pricing.html">Pricing</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook" class="footer-social-icon"> <span></span> </a>
+                <a href="#" aria-label="Instagram" class="footer-social-icon"> <span></span> </a>
+                <a href="#" aria-label="LinkedIn" class="footer-social-icon"> <span></span> </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 — COPYRIGHT</span>
+        </div>
+    </footer>
 </body>
 </html>

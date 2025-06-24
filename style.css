@@ -571,3 +571,106 @@ body {
     color: #9CA3AF; /* text-gray-400 */
     font-size: 14px; /* text-sm */
 }
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1000px) {
+    .header {
+        flex-direction: column;
+        padding: 10px 2%;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .navbar a {
+        margin: 10px 0 0 0;
+        font-size: 16px;
+    }
+    .home {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 2%;
+    }
+    .home-content h1 {
+        font-size: 32px;
+    }
+    .home-content h2 {
+        font-size: 18px;
+    }
+    .home-video {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .sound-board {
+        padding: 30px 2%;
+    }
+    .sound-board h2 {
+        font-size: 28px;
+    }
+    .image-grid {
+        gap: 15px;
+    }
+    .image-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .image-container, .circular-image {
+        width: 90px;
+        height: 90px;
+    }
+    .features-section {
+        padding: 30px 2%;
+    }
+    .features-section h2 {
+        font-size: 28px;
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .feature-card {
+        padding: 15px;
+    }
+    .feature-image-container {
+        height: 120px;
+    }
+    .use-cases-section {
+        padding: 30px 2%;
+    }
+    .use-cases-section h2 {
+        font-size: 28px;
+    }
+    .use-cases-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .accordion-container, .animation-container {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+    }
+    .animation-container {
+        height: 250px;
+    }
+    .animation-container .orbit-center {
+        width: 120px;
+        height: 120px;
+    }
+    .orbiting-circle {
+        --icon-size: 30px;
+        --radius: 60px;
+    }
+    .calculator-section {
+        padding: 30px 2%;
+    }
+    .calculator-header h1 {
+        font-size: 20px;
+    }
+    .calculator-form {
+        padding: 15px;
+    }
+    .results-box .amount-value {
+        font-size: 32px;
+    }
+}

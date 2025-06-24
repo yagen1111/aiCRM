@@ -572,6 +572,81 @@ body {
     font-size: 14px; /* text-sm */
 }
 
+/* --- Mobile Navigation Hamburger --- */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4vw;
+    height: 56px;
+  }
+  .logo {
+    width: 100px !important;
+    height: auto !important;
+    font-size: 18px;
+  }
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background: #2a4b8d;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100vw;
+    z-index: 200;
+    padding: 0;
+  }
+  .navbar.active {
+    display: flex;
+  }
+  .navbar a {
+    margin: 0;
+    padding: 16px 0;
+    font-size: 16px;
+    width: 100vw;
+    text-align: center;
+    border-bottom: 1px solid #1a2a4d;
+  }
+  .hamburger {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    z-index: 201;
+  }
+  .shimmer-button {
+    font-size: 14px;
+    padding: 8px 18px;
+    margin: 8px 0 0 0;
+  }
+  .home-content h1 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  .home-content h2 {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .home {
+    padding: 10px 2vw 0 2vw;
+  }
+  .home-video {
+    width: 100vw;
+    margin: 10px 0;
+  }
+  #myVideo {
+    width: 100vw;
+    border-radius: 10px;
+  }
+}
+
+/* Hamburger always hidden on desktop */
+.hamburger { display: none; }
+
 /* Media Queries for Responsive Design */
 @media (max-width: 1000px) {
     .header {

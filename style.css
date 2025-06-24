@@ -626,7 +626,7 @@ body {
   }
   
   .hamburger {
-    display: block;
+    display: block !important;
     width: 32px;
     height: 32px;
     background: none;

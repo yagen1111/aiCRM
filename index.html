@@ -22,7 +22,7 @@
             <a href="#">Home</a>
             <a href="features.html">Features</a>
             <a href="program.html">Program</a>
-            <a href="#">How it works</a>
+            <a href="about_us.html">about us</a>
             <a href="pricing.html">Pricing</a>
         </nav>
         <button class="shimmer-button">
@@ -290,5 +290,177 @@
             <span>© 2025 — COPYRIGHT</span>
         </div>
     </footer>
+
+    <!-- Global Mini MP3 Player (initially hidden) -->
+    <div id="global-audio-player" style="display:none; position:fixed; bottom:24px; left:50%; transform:translateX(-50%); z-index:9999;"></div>
+    <script>
+// Accordion functionality for use cases
+window.addEventListener('DOMContentLoaded', () => {
+    try {
+        // Hide all contents by default
+        document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        if (accordionHeaders.length) {
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    const content = item.querySelector('.accordion-content');
+                    const isOpen = item.classList.contains('open');
+                    // Close all
+                    document.querySelectorAll('.accordion-item').forEach(i => {
+                        i.classList.remove('open');
+                        if(i.querySelector('.accordion-content')) i.querySelector('.accordion-content').style.maxHeight = null;
+                        if(i.querySelector('.toggle-icon')) i.querySelector('.toggle-icon').textContent = '+';
+                    });
+                    // Open this one if it was not open
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        content.style.display = 'block';
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        this.querySelector('.toggle-icon').textContent = '-';
+                    } else {
+                        content.style.display = 'none';
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+        }
+    } catch (err) { console.error('Accordion error:', err); }
+
+    // --- Sound Board Avatar Clicks ---
+    try {
+        let currentSoundBoardAudio = null;
+        document.querySelectorAll('.sound-board .circular-image').forEach(img => {
+            img.addEventListener('click', function() {
+                if (currentSoundBoardAudio) {
+                    currentSoundBoardAudio.pause();
+                    currentSoundBoardAudio.currentTime = 0;
+                    currentSoundBoardAudio.remove();
+                    currentSoundBoardAudio = null;
+                }
+                const src = img.getAttribute('data-audio-src');
+                if (src) {
+                    const audio = document.createElement('audio');
+                    audio.src = src;
+                    audio.style.display = 'none';
+                    document.body.appendChild(audio);
+                    audio.play().catch(()=>{});
+                    currentSoundBoardAudio = audio;
+                    audio.addEventListener('ended', () => {
+                        audio.remove();
+                        currentSoundBoardAudio = null;
+                    });
+                }
+            });
+        });
+    } catch (err) { console.error('Sound board error:', err); }
+
+    // --- MP3 player for Play Audio Now buttons ---
+    try {
+        const globalPlayer = document.getElementById('global-audio-player');
+        let currentAudio = null;
+        document.querySelectorAll('.btn.btn-secondary').forEach((btn, idx) => {
+            btn.addEventListener('click', function() {
+                // Remove previous player UI
+                globalPlayer.innerHTML = '';
+                globalPlayer.style.display = '';
+                let audioSrc = 'audio/sample.mp3';
+                if(idx === 0) audioSrc = 'audio/john_lead.mp3';
+                if(idx === 1) audioSrc = 'audio/kim.mp3';
+                const playerContainer = document.createElement('div');
+                playerContainer.className = 'audio-player-container';
+                playerContainer.innerHTML = `
+                    <audio class="audio-player" src="${audioSrc}"></audio>
+                    <div class="mini-player-controls">
+                        <button class="mini-btn mini-back" title="Back 10s">⏪</button>
+                        <button class="mini-btn mini-play" title="Play">▶️</button>
+                        <button class="mini-btn mini-pause" title="Pause" style="display:none;">⏸️</button>
+                        <button class="mini-btn mini-forward" title="Forward 10s">⏩</button>
+                        <span class="mini-time mini-current">0:00</span>
+                        <input type="range" class="mini-progress" min="0" value="0" step="1">
+                        <span class="mini-time mini-duration">0:00</span>
+                    </div>
+                `;
+                globalPlayer.appendChild(playerContainer);
+                const audio = playerContainer.querySelector('.audio-player');
+                const playBtn = playerContainer.querySelector('.mini-play');
+                const pauseBtn = playerContainer.querySelector('.mini-pause');
+                const backBtn = playerContainer.querySelector('.mini-back');
+                const forwardBtn = playerContainer.querySelector('.mini-forward');
+                const progress = playerContainer.querySelector('.mini-progress');
+                const currentTimeEl = playerContainer.querySelector('.mini-current');
+                const durationEl = playerContainer.querySelector('.mini-duration');
+
+                function formatTime(sec) {
+                    sec = Math.floor(sec);
+                    const m = Math.floor(sec / 60);
+                    const s = sec % 60;
+                    return `${m}:${s.toString().padStart(2, '0')}`;
+                }
+
+                playBtn.disabled = true;
+                pauseBtn.disabled = true;
+                backBtn.disabled = true;
+                forwardBtn.disabled = true;
+                progress.disabled = true;
+
+                audio.addEventListener('loadedmetadata', () => {
+                    progress.max = Math.floor(audio.duration);
+                    durationEl.textContent = formatTime(audio.duration);
+                    playBtn.disabled = false;
+                    pauseBtn.disabled = false;
+                    backBtn.disabled = false;
+                    forwardBtn.disabled = false;
+                    progress.disabled = false;
+                });
+                audio.addEventListener('timeupdate', () => {
+                    progress.value = Math.floor(audio.currentTime);
+                    currentTimeEl.textContent = formatTime(audio.currentTime);
+                });
+                playBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    audio.play();
+                });
+                pauseBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    audio.pause();
+                });
+                audio.addEventListener('play', () => {
+                    playBtn.style.display = 'none';
+                    pauseBtn.style.display = '';
+                });
+                audio.addEventListener('pause', () => {
+                    playBtn.style.display = '';
+                    pauseBtn.style.display = 'none';
+                });
+                backBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    audio.currentTime = Math.max(0, audio.currentTime - 10);
+                });
+                forwardBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+                });
+                progress.addEventListener('input', (e) => {
+                    audio.currentTime = progress.value;
+                });
+                audio.addEventListener('ended', () => {
+                    playBtn.style.display = '';
+                    pauseBtn.style.display = 'none';
+                    audio.currentTime = 0;
+                    progress.value = 0;
+                });
+                audio.load();
+                audio.play();
+                // Pause previous audio if any
+                if(currentAudio && currentAudio !== audio) {
+                    currentAudio.pause();
+                }
+                currentAudio = audio;
+            });
+        });
+    } catch (err) { console.error('Mini player error:', err); }
+});
+</script>
 </body>
 </html>
